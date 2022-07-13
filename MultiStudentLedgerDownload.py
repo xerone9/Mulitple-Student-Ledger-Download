@@ -52,12 +52,23 @@ def download(url: str, dest_folder: str, id: str):
                     os.fsync(f.fileno())
     else:  # HTTP status code 4XX/5XX
         print("Download failed: status code {}\n{}".format(r.status_code, r.text))
+count = 0
+index = 0
+for a in reversed(URL):
+    if a == "=":
+        count += 1
+    if count < 2:
+        pass
+    else:
+        break
+    index += 1
+
 
 file = open(desktop + getTextFile, 'r')
 Lines = file.readlines()
 for line in Lines:
     id = line.strip()
-    modifiedURL = URL[0:len(URL) - 23] + str(id) + "&v_voucher_no="
+    modifiedURL = URL[0:len(URL) - index] + str(id) + "&v_voucher_no="
     try:
         download(modifiedURL, dest_folder="mydir", id=id + ".pdf")
     except requests.exceptions.ConnectionError:
