@@ -1,5 +1,5 @@
-# Indus University/Mulitple-Student-Ledger-Download
- For Indus University Only
+# Mulitple-Student-Ledger-Download
+ Designed Automation for a specific institute
 
 Add a text file having student ids in it (Each Student ID by a linespace)
 
